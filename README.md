@@ -29,13 +29,6 @@ Before running the experiments, ensure you have the following installed:
     pip install -r requirements.txt
     ```
 
-3. **Prepare the datasets:**
-
-    Ensure that the datasets are available in the data/pythonapi directory:
-    - `api-mined_train.csv`
-    - `api-mined_valid.csv`
-    - `api-mined_test.csv`
-
 ## Running the Experiments
 
 ### Pruning CodeT5
