@@ -37,6 +37,23 @@ Before running the experiments, ensure you have the following installed:
 
 ## Running the Experiments
 
+### Pruning CodeT5
+
+To prune the CodeT5 model, use the prune_codeT5 function in the pruning.py file. The function sets up the model, tokenizer, and datasets, and then prunes the model layers.
+
+1. **Prune a particular layer:**
+
+    ```sh
+    python pruning.py --layer 'encoder.block.8.layer.1.DenseReluDense.wo' --exp_name <experiment_name>
+    ```
+
+2. **Prune all layers:**
+    
+    ```sh
+    python pruning.py --save_results --exp_name <experiment_name>
+    ```
+    
+
 ### Fine-Tuning CodeT5
 
 To fine-tune the CodeT5 model, use the fine_tune_codeT5 function in the pruning.py file. The function sets up the model, tokenizer, and datasets, and then fine-tunes the model.
@@ -44,16 +61,7 @@ To fine-tune the CodeT5 model, use the fine_tune_codeT5 function in the pruning.
 1. **Run the fine-tuning script:**
 
     ```sh
-    python pruning.py --task fine_tune --model_path final_model --exp_name <experiment_name>
+    python pruning.py --finetune --exp_name <experiment_name>
     ```
 
-### Pruning CodeT5
-
-To prune the CodeT5 model, use the prune_codeT5 function in the pruning.py file. The function sets up the model, tokenizer, and datasets, and then prunes the model layers.
-
-1. **Run the pruning script:**
-
-    ```sh
-    python pruning.py --task prune --model_path final_model --layer_name <layer_name> --exp_name <experiment_name>
-    ```
 
