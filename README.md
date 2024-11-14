@@ -1,5 +1,7 @@
 # GenePrune
 
+GenePrune is a repository focused on fine-tuning and pruning the CodeT5 model for specific tasks using genetic algorithm-based techniques. It includes scripts for training, pruning, and evaluating the sparsity of neural network models, particularly targeting the reduction of model parameters while maintaining performance.
+
 # Running Experiments with pruning.py
 
 This guide provides instructions on how to run experiments using the pruning.py file. The pruning.py script is designed to prune and fine-tune the CodeT5 model.
@@ -10,7 +12,6 @@ Before running the experiments, ensure you have the following installed:
 
 - Python 3.6 or higher
 - PyTorch 2.5.0
-- Transformers library from Hugging Face
 - Other dependencies listed in `requirements.txt`
 
 ## Setup
