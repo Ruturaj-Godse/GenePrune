@@ -10,7 +10,6 @@ Before running the experiments, ensure you have the following installed:
 
 - Python 3.6 or higher
 - PyTorch 2.5.0
-- Transformers library from Hugging Face
 - Other dependencies listed in `requirements.txt`
 
 ## Setup
