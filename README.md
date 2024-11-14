@@ -29,6 +29,9 @@ Before running the experiments, ensure you have the following installed:
     pip install -r requirements.txt
     ```
 
+3. Download the model files into "final_model" folder from [here](https://huggingface.co/gangqinxiao13/fine-tuned-codet5)
+   
+
 ## Running the Experiments
 
 ### Pruning CodeT5
