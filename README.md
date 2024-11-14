@@ -18,8 +18,8 @@ Before running the experiments, ensure you have the following installed:
 1. **Clone the repository:**
 
     ```sh
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/Ruturaj-Godse/GenePrune.git
+    cd GenePrune
     ```
 
 2. **Install the required dependencies:**
