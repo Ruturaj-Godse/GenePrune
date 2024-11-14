@@ -44,6 +44,10 @@ To prune the CodeT5 model, use the prune_codeT5 function in the pruning.py file.
 1. **Prune a particular layer:**
 
     ```sh
+    python pruning.py --layer <layer_name> --exp_name <experiment_name>
+    ```
+    For example:
+   ```sh
     python pruning.py --layer 'encoder.block.8.layer.1.DenseReluDense.wo' --exp_name <experiment_name>
     ```
 
