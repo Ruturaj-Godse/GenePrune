@@ -1,7 +1,5 @@
 # GenePrune
 
-Hi
-
 GenePrune is a repository focused on fine-tuning and pruning the CodeT5 model for specific tasks using genetic algorithm-based techniques. It includes scripts for training, pruning, and evaluating the sparsity of neural network models, particularly targeting the reduction of model parameters while maintaining performance.
 
 # Running Experiments with pruning.py
