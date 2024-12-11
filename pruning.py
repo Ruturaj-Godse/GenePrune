@@ -118,7 +118,7 @@ def formula(sparsity, accuracy):
     The function uses a fixed weight `alpha` of 0.8 to prioritize sparsity, but this can be adjusted 
     depending on specific requirements or preferences for the balance between sparsity and accuracy.
     """
-    alpha = 0.03
+    alpha = 0.02
     return alpha * sparsity + (1 - alpha) * accuracy
 
 
@@ -326,7 +326,8 @@ class GeneticPruning:
                             or a tuple (sparsity, accuracy) reflecting the performance metrics of 
                             the pruned model.
         """
-        return objective_function_code(self.model, self.tokenizer, self.layer_name, solution, self.test_loader, MBPP_Test_DF, self.blue_lower_limit, ret)
+        # return objective_function_code(self.model, self.tokenizer, self.layer_name, solution, self.test_loader, MBPP_Test_DF, self.blue_lower_limit, ret)
+        return objective_function_code(self.model, self.tokenizer, self.layer_name, solution, self.val_test_loader, MBPP_Val_DF, self.blue_lower_limit, ret)
     
 
     def performance_wrapper(self, solution, ret=0):
@@ -642,8 +643,8 @@ class GeneticPruning:
                 
                 config["solution_size"] = np.prod(layer.weight.size())
 
-                # best_score, best_solution = self.genetic_algorithm(**config)
-                best_score, best_solution = self.mock_genetic_algorithm(**config)
+                best_score, best_solution = self.genetic_algorithm(**config)
+                # best_score, best_solution = self.mock_genetic_algorithm(**config)
 
                 print("Best Solution Score:", best_score)
                 print("Best Solution Perf:", self.objective_function_wrapper(best_solution, ret=1))
@@ -656,9 +657,9 @@ class GeneticPruning:
                     custom_unstructured(prev_layer, name='weight')
 
 
-                if (idx+1)%20 == 0:
+                if (idx+1)%5 == 0:
                     print()
-                    fine_tune(self.model, self.train_loader, self.val_loader, epochs=1, learning_rate=1e-6)
+                    fine_tune(self.model, self.train_loader, self.val_loader, epochs=2, learning_rate=1e-6)
 
                 for prev_layer_name, prev_solution in list(self.layer_solutions.items()):
                     prev_layer = get_module_by_name(self.model, prev_layer_name)
@@ -680,30 +681,30 @@ class GeneticPruning:
                 print(f"Error in layer {layer_name}: {e}")
                 continue
 
-        for prev_layer_name, prev_solution in self.layer_solutions.items():
-            solution_mask = torch.tensor(prev_solution)
-            prev_layer = get_module_by_name(self.model, prev_layer_name)
-            custom_unstructured(prev_layer, name='weight')
+        # for prev_layer_name, prev_solution in self.layer_solutions.items():
+        #     solution_mask = torch.tensor(prev_solution)
+        #     prev_layer = get_module_by_name(self.model, prev_layer_name)
+        #     custom_unstructured(prev_layer, name='weight')
 
-        print()
-        fine_tune(self.model, self.train_loader, self.val_loader, epochs=3, learning_rate=1e-6)
+        # print()
+        # fine_tune(self.model, self.train_loader, self.val_loader, epochs=3, learning_rate=1e-6)
 
-        for prev_layer_name, prev_solution in self.layer_solutions.items():
-            prev_layer = get_module_by_name(self.model, prev_layer_name)
-            prune.remove(prev_layer, 'weight')
+        # for prev_layer_name, prev_solution in self.layer_solutions.items():
+        #     prev_layer = get_module_by_name(self.model, prev_layer_name)
+        #     prune.remove(prev_layer, 'weight')
 
-        print("Test accuracy: ", get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
+        # print("Test accuracy: ", get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
 
-        test_accuracies.append(get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
-        print(f"Test accuracy history:", test_accuracies)
-        self.check_sparsity()
-        if args.save_results:
-            directory = f"./sparse_models/{self.model_name}/{args.exp_name}"
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-            torch.save(self.model.state_dict(), f'./sparse_models/{self.model_name}/{args.exp_name}/sparse_weights_retrained.pth')
+        # test_accuracies.append(get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
+        # print(f"Test accuracy history:", test_accuracies)
+        # self.check_sparsity()
+        # if args.save_results:
+        #     directory = f"./sparse_models/{self.model_name}/{args.exp_name}"
+        #     if not os.path.exists(directory):
+        #         os.makedirs(directory)
+        #     torch.save(self.model.state_dict(), f'./sparse_models/{self.model_name}/{args.exp_name}/sparse_weights_retrained.pth')
 
-        print("Time taken: ", time.time()-START_TIME, "sec")
+        # print("Time taken: ", time.time()-START_TIME, "sec")
 
 
     def prune_all_layers_iteratively(self, iters, sparsity_thresholds, config):
@@ -894,8 +895,8 @@ def prune_codeT5(layer_name):
             "mutation_rate": 0.1,
             "generations": 5,
             "warm_start": False,
-            "initial_sparsity_ratio": 0.1,
-            "sparsity_threshold": 1
+            "initial_sparsity_ratio": 0.05,
+            "sparsity_threshold": 0.4
         }
         GP.prune_all_layers(config)
 
