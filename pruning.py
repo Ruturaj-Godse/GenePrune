@@ -209,89 +209,101 @@ class GeneticPruning:
         # remove embedding module names
         self.module_names = [name for name in self.module_names if 'embed_tokens' not in name]
 
-        self.module_names = [ 
-            'shared',
-            'encoder.block.0.layer.0.SelfAttention.v',
-            'encoder.block.8.layer.1.DenseReluDense.wo',
-            'encoder.block.10.layer.0.SelfAttention.k',
-            'encoder.block.5.layer.1.DenseReluDense.wi',
-            'encoder.block.10.layer.1.DenseReluDense.wo',
-            'encoder.block.9.layer.1.DenseReluDense.wi',
-            'decoder.block.2.layer.1.EncDecAttention.v',
-            'encoder.block.4.layer.1.DenseReluDense.wo',
-            'encoder.block.0.layer.0.SelfAttention.o',
-            'decoder.block.3.layer.1.EncDecAttention.o',
-            'decoder.block.10.layer.2.DenseReluDense.wo',
-            'encoder.block.1.layer.0.SelfAttention.k',
-            'encoder.block.4.layer.1.DenseReluDense.wi',
-            'decoder.block.0.layer.1.EncDecAttention.k',
-            'encoder.block.10.layer.0.SelfAttention.q',
-            'decoder.block.0.layer.2.DenseReluDense.wo',
-            'encoder.block.4.layer.0.SelfAttention.k',
-            'decoder.block.10.layer.2.DenseReluDense.wi',
-            'decoder.block.0.layer.1.EncDecAttention.q',
-            'encoder.block.6.layer.0.SelfAttention.k',
-            'encoder.block.9.layer.1.DenseReluDense.wo',
-            'decoder.block.11.layer.1.EncDecAttention.v',
-            'encoder.block.9.layer.1.layer_norm',
-            'decoder.block.7.layer.2.DenseReluDense.wo',
-            'encoder.block.4.layer.0.SelfAttention.v',
-            'decoder.block.2.layer.1.EncDecAttention.q',
-            'decoder.block.4.layer.2.DenseReluDense.wi',
-            'encoder.block.11.layer.1.DenseReluDense.wi',
-            'encoder.block.7.layer.1.DenseReluDense.wo',
-            'decoder.block.2.layer.1.EncDecAttention.k',
-            'encoder.block.1.layer.1.DenseReluDense.wo',
-            'encoder.block.3.layer.1.DenseReluDense.wi',
-            'encoder.block.5.layer.1.layer_norm',
-            'encoder.block.1.layer.0.SelfAttention.v',
-            'decoder.block.5.layer.1.EncDecAttention.k',
+        self.module_names = [
             'encoder.block.0.layer.0.SelfAttention.q',
-            'decoder.block.7.layer.2.DenseReluDense.wi',
-            'decoder.block.3.layer.1.EncDecAttention.k',
-            'encoder.block.1.layer.0.SelfAttention.q',
-            'encoder.block.2.layer.1.DenseReluDense.wi',
-            'decoder.block.11.layer.1.EncDecAttention.q',
-            'decoder.block.0.layer.1.EncDecAttention.o',
-            'decoder.block.1.layer.2.DenseReluDense.wo',
-            'encoder.block.6.layer.1.DenseReluDense.wo',
-            'encoder.block.0.layer.1.DenseReluDense.wo',
-            'decoder.block.10.layer.1.EncDecAttention.o',
-            'decoder.block.11.layer.2.DenseReluDense.wo',
-            'encoder.block.2.layer.1.DenseReluDense.wo',
-            'encoder.block.1.layer.1.DenseReluDense.wi',
-            'decoder.block.3.layer.2.DenseReluDense.wo',
-            'decoder.block.0.layer.1.EncDecAttention.v',
-            'encoder.block.4.layer.0.SelfAttention.q',
-            'decoder.block.0.layer.2.DenseReluDense.wi',
-            'decoder.block.5.layer.2.DenseReluDense.wi',
-            'decoder.block.3.layer.1.EncDecAttention.q',
-            'decoder.block.3.layer.2.DenseReluDense.wi',
-            'encoder.block.7.layer.1.DenseReluDense.wi',
-            'decoder.block.2.layer.2.DenseReluDense.wo',
-            'encoder.block.6.layer.1.DenseReluDense.wi',
             'encoder.block.0.layer.0.SelfAttention.k',
-            'decoder.block.6.layer.2.DenseReluDense.wo',
-            'encoder.block.10.layer.1.DenseReluDense.wi',
-            'encoder.block.11.layer.1.DenseReluDense.wo',
+            'encoder.block.0.layer.0.SelfAttention.v',
+            'encoder.block.0.layer.0.SelfAttention.o',
+            'encoder.block.0.layer.0.SelfAttention.relative_attention_bias',
+            'encoder.block.0.layer.0.layer_norm',
             'encoder.block.0.layer.1.DenseReluDense.wi',
-            'encoder.block.4.layer.0.SelfAttention.o',
-            'decoder.block.8.layer.2.DenseReluDense.wo',
-            'decoder.block.9.layer.2.DenseReluDense.wo',
-            'decoder.block.4.layer.2.DenseReluDense.wo',
-            'decoder.block.2.layer.2.DenseReluDense.wi',
-            'decoder.block.11.layer.2.DenseReluDense.wi',
-            'decoder.block.5.layer.2.DenseReluDense.wo',
-            'decoder.block.9.layer.2.DenseReluDense.wi',
-            'decoder.block.6.layer.2.DenseReluDense.wi',
-            'decoder.block.2.layer.1.EncDecAttention.o',
-            'encoder.block.8.layer.1.DenseReluDense.wi',
-            'encoder.block.5.layer.1.DenseReluDense.wo',
-            'encoder.block.1.layer.0.SelfAttention.o',
-            'decoder.block.1.layer.2.DenseReluDense.wi',
-            'decoder.block.3.layer.1.EncDecAttention.v',
-            'encoder.block.3.layer.1.DenseReluDense.wo',
+            'encoder.block.0.layer.1.DenseReluDense.wo',
+            'encoder.block.0.layer.1.layer_norm',
         ]
+
+        # self.module_names = [ 
+        #     'shared',
+        #     'encoder.block.0.layer.0.SelfAttention.v',
+            # 'encoder.block.8.layer.1.DenseReluDense.wo',
+            # 'encoder.block.10.layer.0.SelfAttention.k',
+            # 'encoder.block.5.layer.1.DenseReluDense.wi',
+            # 'encoder.block.10.layer.1.DenseReluDense.wo',
+            # 'encoder.block.9.layer.1.DenseReluDense.wi',
+            # 'decoder.block.2.layer.1.EncDecAttention.v',
+            # 'encoder.block.4.layer.1.DenseReluDense.wo',
+            # 'encoder.block.0.layer.0.SelfAttention.o',
+            # 'decoder.block.3.layer.1.EncDecAttention.o',
+            # 'decoder.block.10.layer.2.DenseReluDense.wo',
+            # 'encoder.block.1.layer.0.SelfAttention.k',
+            # 'encoder.block.4.layer.1.DenseReluDense.wi',
+            # 'decoder.block.0.layer.1.EncDecAttention.k',
+            # 'encoder.block.10.layer.0.SelfAttention.q',
+            # 'decoder.block.0.layer.2.DenseReluDense.wo',
+            # 'encoder.block.4.layer.0.SelfAttention.k',
+            # 'decoder.block.10.layer.2.DenseReluDense.wi',
+            # 'decoder.block.0.layer.1.EncDecAttention.q',
+            # 'encoder.block.6.layer.0.SelfAttention.k',
+            # 'encoder.block.9.layer.1.DenseReluDense.wo',
+            # 'decoder.block.11.layer.1.EncDecAttention.v',
+            # 'encoder.block.9.layer.1.layer_norm',
+            # 'decoder.block.7.layer.2.DenseReluDense.wo',
+            # 'encoder.block.4.layer.0.SelfAttention.v',
+            # 'decoder.block.2.layer.1.EncDecAttention.q',
+            # 'decoder.block.4.layer.2.DenseReluDense.wi',
+            # 'encoder.block.11.layer.1.DenseReluDense.wi',
+            # 'encoder.block.7.layer.1.DenseReluDense.wo',
+            # 'decoder.block.2.layer.1.EncDecAttention.k',
+            # 'encoder.block.1.layer.1.DenseReluDense.wo',
+            # 'encoder.block.3.layer.1.DenseReluDense.wi',
+            # 'encoder.block.5.layer.1.layer_norm',
+            # 'encoder.block.1.layer.0.SelfAttention.v',
+            # 'decoder.block.5.layer.1.EncDecAttention.k',
+            # 'encoder.block.0.layer.0.SelfAttention.q',
+            # 'decoder.block.7.layer.2.DenseReluDense.wi',
+            # 'decoder.block.3.layer.1.EncDecAttention.k',
+            # 'encoder.block.1.layer.0.SelfAttention.q',
+            # 'encoder.block.2.layer.1.DenseReluDense.wi',
+            # 'decoder.block.11.layer.1.EncDecAttention.q',
+            # 'decoder.block.0.layer.1.EncDecAttention.o',
+            # 'decoder.block.1.layer.2.DenseReluDense.wo',
+            # 'encoder.block.6.layer.1.DenseReluDense.wo',
+            # 'encoder.block.0.layer.1.DenseReluDense.wo',
+            # 'decoder.block.10.layer.1.EncDecAttention.o',
+            # 'decoder.block.11.layer.2.DenseReluDense.wo',
+            # 'encoder.block.2.layer.1.DenseReluDense.wo',
+            # 'encoder.block.1.layer.1.DenseReluDense.wi',
+            # 'decoder.block.3.layer.2.DenseReluDense.wo',
+            # 'decoder.block.0.layer.1.EncDecAttention.v',
+            # 'encoder.block.4.layer.0.SelfAttention.q',
+            # 'decoder.block.0.layer.2.DenseReluDense.wi',
+            # 'decoder.block.5.layer.2.DenseReluDense.wi',
+            # 'decoder.block.3.layer.1.EncDecAttention.q',
+            # 'decoder.block.3.layer.2.DenseReluDense.wi',
+            # 'encoder.block.7.layer.1.DenseReluDense.wi',
+            # 'decoder.block.2.layer.2.DenseReluDense.wo',
+            # 'encoder.block.6.layer.1.DenseReluDense.wi',
+            # 'encoder.block.0.layer.0.SelfAttention.k',
+            # 'decoder.block.6.layer.2.DenseReluDense.wo',
+            # 'encoder.block.10.layer.1.DenseReluDense.wi',
+            # 'encoder.block.11.layer.1.DenseReluDense.wo',
+            # 'encoder.block.0.layer.1.DenseReluDense.wi',
+            # 'encoder.block.4.layer.0.SelfAttention.o',
+            # 'decoder.block.8.layer.2.DenseReluDense.wo',
+            # 'decoder.block.9.layer.2.DenseReluDense.wo',
+            # 'decoder.block.4.layer.2.DenseReluDense.wo',
+            # 'decoder.block.2.layer.2.DenseReluDense.wi',
+            # 'decoder.block.11.layer.2.DenseReluDense.wi',
+            # 'decoder.block.5.layer.2.DenseReluDense.wo',
+            # 'decoder.block.9.layer.2.DenseReluDense.wi',
+            # 'decoder.block.6.layer.2.DenseReluDense.wi',
+            # 'decoder.block.2.layer.1.EncDecAttention.o',
+            # 'encoder.block.8.layer.1.DenseReluDense.wi',
+            # 'encoder.block.5.layer.1.DenseReluDense.wo',
+            # 'encoder.block.1.layer.0.SelfAttention.o',
+            # 'decoder.block.1.layer.2.DenseReluDense.wi',
+            # 'decoder.block.3.layer.1.EncDecAttention.v',
+            # 'encoder.block.3.layer.1.DenseReluDense.wo',
+        # ]
 
     
     def objective_function_wrapper(self, solution, ret=0):
@@ -516,6 +528,29 @@ class GeneticPruning:
         best_score, _, best_sol = max(population_heap, key= lambda x : x[0])
         return best_score, best_sol
 
+    def mock_genetic_algorithm(self, population_size, solution_size, crossover_rate, mutation_rate, generations, warm_start, initial_sparsity_ratio, sparsity_threshold):
+        """
+        Mock genetic algorithm that generates random pruning masks instead of evolving them.
+        This function mimics the interface of the genetic algorithm but uses random masks.
+
+        Parameters:
+            population_size (int): The number of solutions in the population.
+            solution_size (int): The number of parameters in the targeted layer, determining the size of each solution.
+            crossover_rate (float): Not used in this mock function.
+            mutation_rate (float): Not used in this mock function.
+            generations (int): Not used in this mock function.
+            warm_start (bool): Not used in this mock function.
+            initial_sparsity_ratio (float): The proportion of weights initially set as pruned when creating a new population.
+            sparsity_threshold (float): The sparsity level at which the algorithm will stop if achieved by any solution.
+
+        Returns:
+            tuple: A tuple containing the best score achieved and the corresponding best solution.
+        """
+        
+        best_solution = np.random.choice([0, 1], size=(solution_size,), p=[initial_sparsity_ratio, 1-initial_sparsity_ratio])
+        best_score = self.objective_function_wrapper(best_solution)
+
+        return best_score, best_solution
     
     def prune_one_layer(self, layer_name, config):
         """
@@ -607,7 +642,8 @@ class GeneticPruning:
                 
                 config["solution_size"] = np.prod(layer.weight.size())
 
-                best_score, best_solution = self.genetic_algorithm(**config)
+                # best_score, best_solution = self.genetic_algorithm(**config)
+                best_score, best_solution = self.mock_genetic_algorithm(**config)
 
                 print("Best Solution Score:", best_score)
                 print("Best Solution Perf:", self.objective_function_wrapper(best_solution, ret=1))
@@ -650,7 +686,7 @@ class GeneticPruning:
             custom_unstructured(prev_layer, name='weight')
 
         print()
-        fine_tune(self.model, self.train_loader, self.val_loader, epochs=1, learning_rate=1e-6)
+        fine_tune(self.model, self.train_loader, self.val_loader, epochs=3, learning_rate=1e-6)
 
         for prev_layer_name, prev_solution in self.layer_solutions.items():
             prev_layer = get_module_by_name(self.model, prev_layer_name)
@@ -812,11 +848,17 @@ def prune_codeT5(layer_name):
         model = torch.nn.DataParallel(model)
         cudnn.benchmark = True
 
-    train_dataset = Api_Dataset('api-mined_train.csv', text_length=128, code_length=128)
-    valid_dataset = Api_Dataset('api-mined_valid.csv', text_length=128, code_length=128)
+    # train_dataset = Api_Dataset('api-mined_train.csv', text_length=128, code_length=128)
+    # valid_dataset = Api_Dataset('api-mined_valid.csv', text_length=128, code_length=128)
 
-    train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-    val_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False)
+    train_dataset = Mbpp_Dataset('mbpp_train.csv', text_length=128, code_length=128)
+    valid_dataset = Mbpp_Dataset('mbpp_valid.csv', text_length=128, code_length=128)
+
+    # train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+    # val_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False)
+
+    train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
+    val_loader = DataLoader(valid_dataset, batch_size=8, shuffle=False)
 
     val_test_dataset = Test_Dataset(data='data/mbpp/mbpp_valid.csv', task_prefix='Generate code from natural language: (from Mbpp)')
     val_test_loader = DataLoader(dataset=val_test_dataset, batch_size=128, shuffle=False)
@@ -850,7 +892,7 @@ def prune_codeT5(layer_name):
             "population_size": 10,
             "crossover_rate": 1,
             "mutation_rate": 0.1,
-            "generations": 2,
+            "generations": 5,
             "warm_start": False,
             "initial_sparsity_ratio": 0.1,
             "sparsity_threshold": 1
