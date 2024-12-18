@@ -221,90 +221,6 @@ class GeneticPruning:
             'encoder.block.0.layer.1.layer_norm',
         ]
 
-        # self.module_names = [ 
-        #     'shared',
-        #     'encoder.block.0.layer.0.SelfAttention.v',
-            # 'encoder.block.8.layer.1.DenseReluDense.wo',
-            # 'encoder.block.10.layer.0.SelfAttention.k',
-            # 'encoder.block.5.layer.1.DenseReluDense.wi',
-            # 'encoder.block.10.layer.1.DenseReluDense.wo',
-            # 'encoder.block.9.layer.1.DenseReluDense.wi',
-            # 'decoder.block.2.layer.1.EncDecAttention.v',
-            # 'encoder.block.4.layer.1.DenseReluDense.wo',
-            # 'encoder.block.0.layer.0.SelfAttention.o',
-            # 'decoder.block.3.layer.1.EncDecAttention.o',
-            # 'decoder.block.10.layer.2.DenseReluDense.wo',
-            # 'encoder.block.1.layer.0.SelfAttention.k',
-            # 'encoder.block.4.layer.1.DenseReluDense.wi',
-            # 'decoder.block.0.layer.1.EncDecAttention.k',
-            # 'encoder.block.10.layer.0.SelfAttention.q',
-            # 'decoder.block.0.layer.2.DenseReluDense.wo',
-            # 'encoder.block.4.layer.0.SelfAttention.k',
-            # 'decoder.block.10.layer.2.DenseReluDense.wi',
-            # 'decoder.block.0.layer.1.EncDecAttention.q',
-            # 'encoder.block.6.layer.0.SelfAttention.k',
-            # 'encoder.block.9.layer.1.DenseReluDense.wo',
-            # 'decoder.block.11.layer.1.EncDecAttention.v',
-            # 'encoder.block.9.layer.1.layer_norm',
-            # 'decoder.block.7.layer.2.DenseReluDense.wo',
-            # 'encoder.block.4.layer.0.SelfAttention.v',
-            # 'decoder.block.2.layer.1.EncDecAttention.q',
-            # 'decoder.block.4.layer.2.DenseReluDense.wi',
-            # 'encoder.block.11.layer.1.DenseReluDense.wi',
-            # 'encoder.block.7.layer.1.DenseReluDense.wo',
-            # 'decoder.block.2.layer.1.EncDecAttention.k',
-            # 'encoder.block.1.layer.1.DenseReluDense.wo',
-            # 'encoder.block.3.layer.1.DenseReluDense.wi',
-            # 'encoder.block.5.layer.1.layer_norm',
-            # 'encoder.block.1.layer.0.SelfAttention.v',
-            # 'decoder.block.5.layer.1.EncDecAttention.k',
-            # 'encoder.block.0.layer.0.SelfAttention.q',
-            # 'decoder.block.7.layer.2.DenseReluDense.wi',
-            # 'decoder.block.3.layer.1.EncDecAttention.k',
-            # 'encoder.block.1.layer.0.SelfAttention.q',
-            # 'encoder.block.2.layer.1.DenseReluDense.wi',
-            # 'decoder.block.11.layer.1.EncDecAttention.q',
-            # 'decoder.block.0.layer.1.EncDecAttention.o',
-            # 'decoder.block.1.layer.2.DenseReluDense.wo',
-            # 'encoder.block.6.layer.1.DenseReluDense.wo',
-            # 'encoder.block.0.layer.1.DenseReluDense.wo',
-            # 'decoder.block.10.layer.1.EncDecAttention.o',
-            # 'decoder.block.11.layer.2.DenseReluDense.wo',
-            # 'encoder.block.2.layer.1.DenseReluDense.wo',
-            # 'encoder.block.1.layer.1.DenseReluDense.wi',
-            # 'decoder.block.3.layer.2.DenseReluDense.wo',
-            # 'decoder.block.0.layer.1.EncDecAttention.v',
-            # 'encoder.block.4.layer.0.SelfAttention.q',
-            # 'decoder.block.0.layer.2.DenseReluDense.wi',
-            # 'decoder.block.5.layer.2.DenseReluDense.wi',
-            # 'decoder.block.3.layer.1.EncDecAttention.q',
-            # 'decoder.block.3.layer.2.DenseReluDense.wi',
-            # 'encoder.block.7.layer.1.DenseReluDense.wi',
-            # 'decoder.block.2.layer.2.DenseReluDense.wo',
-            # 'encoder.block.6.layer.1.DenseReluDense.wi',
-            # 'encoder.block.0.layer.0.SelfAttention.k',
-            # 'decoder.block.6.layer.2.DenseReluDense.wo',
-            # 'encoder.block.10.layer.1.DenseReluDense.wi',
-            # 'encoder.block.11.layer.1.DenseReluDense.wo',
-            # 'encoder.block.0.layer.1.DenseReluDense.wi',
-            # 'encoder.block.4.layer.0.SelfAttention.o',
-            # 'decoder.block.8.layer.2.DenseReluDense.wo',
-            # 'decoder.block.9.layer.2.DenseReluDense.wo',
-            # 'decoder.block.4.layer.2.DenseReluDense.wo',
-            # 'decoder.block.2.layer.2.DenseReluDense.wi',
-            # 'decoder.block.11.layer.2.DenseReluDense.wi',
-            # 'decoder.block.5.layer.2.DenseReluDense.wo',
-            # 'decoder.block.9.layer.2.DenseReluDense.wi',
-            # 'decoder.block.6.layer.2.DenseReluDense.wi',
-            # 'decoder.block.2.layer.1.EncDecAttention.o',
-            # 'encoder.block.8.layer.1.DenseReluDense.wi',
-            # 'encoder.block.5.layer.1.DenseReluDense.wo',
-            # 'encoder.block.1.layer.0.SelfAttention.o',
-            # 'decoder.block.1.layer.2.DenseReluDense.wi',
-            # 'decoder.block.3.layer.1.EncDecAttention.v',
-            # 'encoder.block.3.layer.1.DenseReluDense.wo',
-        # ]
-
     
     def objective_function_wrapper(self, solution, ret=0):
         """
@@ -326,7 +242,6 @@ class GeneticPruning:
                             or a tuple (sparsity, accuracy) reflecting the performance metrics of 
                             the pruned model.
         """
-        # return objective_function_code(self.model, self.tokenizer, self.layer_name, solution, self.test_loader, MBPP_Test_DF, self.blue_lower_limit, ret)
         return objective_function_code(self.model, self.tokenizer, self.layer_name, solution, self.val_test_loader, MBPP_Val_DF, self.blue_lower_limit, ret)
     
 
@@ -644,7 +559,6 @@ class GeneticPruning:
                 config["solution_size"] = np.prod(layer.weight.size())
 
                 best_score, best_solution = self.genetic_algorithm(**config)
-                # best_score, best_solution = self.mock_genetic_algorithm(**config)
 
                 print("Best Solution Score:", best_score)
                 print("Best Solution Perf:", self.objective_function_wrapper(best_solution, ret=1))
@@ -680,31 +594,6 @@ class GeneticPruning:
             except Exception as e:
                 print(f"Error in layer {layer_name}: {e}")
                 continue
-
-        # for prev_layer_name, prev_solution in self.layer_solutions.items():
-        #     solution_mask = torch.tensor(prev_solution)
-        #     prev_layer = get_module_by_name(self.model, prev_layer_name)
-        #     custom_unstructured(prev_layer, name='weight')
-
-        # print()
-        # fine_tune(self.model, self.train_loader, self.val_loader, epochs=3, learning_rate=1e-6)
-
-        # for prev_layer_name, prev_solution in self.layer_solutions.items():
-        #     prev_layer = get_module_by_name(self.model, prev_layer_name)
-        #     prune.remove(prev_layer, 'weight')
-
-        # print("Test accuracy: ", get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
-
-        # test_accuracies.append(get_bleu_score(self.model, self.tokenizer, self.test_loader, MBPP_Test_DF))
-        # print(f"Test accuracy history:", test_accuracies)
-        # self.check_sparsity()
-        # if args.save_results:
-        #     directory = f"./sparse_models/{self.model_name}/{args.exp_name}"
-        #     if not os.path.exists(directory):
-        #         os.makedirs(directory)
-        #     torch.save(self.model.state_dict(), f'./sparse_models/{self.model_name}/{args.exp_name}/sparse_weights_retrained.pth')
-
-        # print("Time taken: ", time.time()-START_TIME, "sec")
 
 
     def prune_all_layers_iteratively(self, iters, sparsity_thresholds, config):
@@ -849,14 +738,8 @@ def prune_codeT5(layer_name):
         model = torch.nn.DataParallel(model)
         cudnn.benchmark = True
 
-    # train_dataset = Api_Dataset('api-mined_train.csv', text_length=128, code_length=128)
-    # valid_dataset = Api_Dataset('api-mined_valid.csv', text_length=128, code_length=128)
-
     train_dataset = Mbpp_Dataset('mbpp_train.csv', text_length=128, code_length=128)
     valid_dataset = Mbpp_Dataset('mbpp_valid.csv', text_length=128, code_length=128)
-
-    # train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-    # val_loader = DataLoader(valid_dataset, batch_size=16, shuffle=False)
 
     train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
     val_loader = DataLoader(valid_dataset, batch_size=8, shuffle=False)
@@ -896,7 +779,7 @@ def prune_codeT5(layer_name):
             "generations": 5,
             "warm_start": False,
             "initial_sparsity_ratio": 0.05,
-            "sparsity_threshold": 0.4
+            "sparsity_threshold": 0.2
         }
         GP.prune_all_layers(config)
 
